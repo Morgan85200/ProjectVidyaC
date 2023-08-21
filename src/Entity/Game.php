@@ -52,6 +52,9 @@ use App\Controller\HomeController;
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $banner = null;
+
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
@@ -167,6 +170,18 @@ use App\Controller\HomeController;
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): static
+    {
+        $this->banner = $banner;
 
         return $this;
     }

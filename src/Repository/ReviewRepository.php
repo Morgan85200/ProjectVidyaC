@@ -39,6 +39,17 @@ class ReviewRepository extends ServiceEntityRepository
         }
     }
 
+    public function getAllReviews($gameId)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r.body', 'r.note', 'g.title', 'u.username')
+            ->leftJoin('r.game_id', 'g')
+            ->leftJoin('r.user_id', 'u')
+            ->where('r.game_id = :gameId')
+            ->setParameter('gameId', $gameId)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Review[] Returns an array of Review objects
 //     */

@@ -20,6 +20,7 @@ use App\Repository\GameRepository;
 use App\Repository\PlatformRepository;
 use App\Repository\UserRepository;
 use App\Service\DateTimeFactory;
+use App\Entity\Review;
 
 class AppFixtures extends Fixture
 {
@@ -165,6 +166,27 @@ class AppFixtures extends Fixture
             $gameUser->setIsFavorited(random_int(0, 1));
 
             $manager->persist($gameUser);
+        }
+        $manager->flush();
+
+        // REVIEWS
+
+        $games = $this->gameRepository->findAll();
+        $users = $this->userRepository->findAll();
+
+        for ($i = 0; $i < 10; $i++) {
+
+            $game = $games[random_int(0, 10)];
+            $user = $users[random_int(0, 10)];
+            $review = new Review();
+            $review->setUserId($user);
+            $review->setGameId($game);
+            $review->setBody("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+            $review->setNote(random_int(0, 5));
+            $review->setIsHidden(0);
+
+
+            $manager->persist($review);
         }
         $manager->flush();
     }

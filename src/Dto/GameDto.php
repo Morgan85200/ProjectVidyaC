@@ -11,6 +11,7 @@ class GameDto
     public string $description;
     public ?\DateTimeInterface $releaseDate;
     public string $image;
+    public string $banner;
 
     public function __construct (Game $game) {
         $this->id = $game->getId();
@@ -18,6 +19,7 @@ class GameDto
         $this->description = $game->getDescription();
         $this->releaseDate = $game->getReleaseDate();
         $this->image = $game->getImage();
+        $this->banner = $game->getBanner();
     }
 
 }

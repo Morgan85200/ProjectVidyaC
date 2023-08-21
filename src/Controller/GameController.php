@@ -9,6 +9,7 @@ use App\Repository\GameRepository;
 use App\Dto\GameDto;
 use App\Entity\GameCreator;
 use App\Entity\GamePlatform;
+use App\Entity\Review;
 use Doctrine\Persistence\ManagerRegistry;
 
 class GameController extends AbstractController
@@ -31,21 +32,24 @@ class GameController extends AbstractController
 
         $creatorsNames = $doctrine->getRepository(GameCreator::class)->getAllCreatorsName($id);
         $platformsNames = $doctrine->getRepository(GamePlatform::class)->getAllPlatformsName($id);
+        $reviews = $doctrine->getRepository(Review::class)->getAllReviews($id);
 
-        // foreach ($results as $result) {
-        //     dump($result);
+        // foreach ($reviews as $review) {
+        //     dump($review);
         // }
         // die();
 
         $gameDto = new GameDto($game);
         $gameDto->image = $game->getImage();
+        $gameDto->banner = $game->getBanner();
         $gameDto->title = $game->getTitle();
         $gameDto->description = $game->getDescription();
 
         return $this->render('game/game.html.twig', [
             'game' => $gameDto,
             'creatorNames' => $creatorsNames[0],
-            'platformNames' => $platformsNames
+            'platformNames' => $platformsNames,
+            'reviews' => $reviews 
         ]);
     }
 }

@@ -2,17 +2,53 @@
     height: 60px;
 }
 
-.game_image {
-    width:264px;
-    height:352px;
-}
-
 body { 
-    background-color:#e7e5e5;
+    /* background-color:#e7e5e5; */
+    background-color:rgb(27, 27, 27);
+    color:white;
     padding:1%;
 }
 
 header {
-    margin-bottom:50px;
-    background-color:#e7e5e5;
+    margin-bottom:3%;
+    background-color:rgb(27, 27, 27);
+}
+
+.image-container {
+    position: relative;
+}
+
+.game_image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-250%, -50%);
+    width:264px;
+    height:352px;
+    border-radius: 1%;
+    border: 1px solid darkgray;
+}
+
+.game_banner {
+    webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+    border-radius: 1%;
+    border: 1px solid darkgray;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid gray; /* Adjust the color and style as needed */
+    margin: -15px 0;
+    padding-bottom:1%; /* Adjust the margin as needed */
+}
+
+.reviewList li {
+    padding:1%
+}
+.reviewList {
+    list-style-type: none;
+    padding-left: 0;
 }
