@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Vidya Collection</title>
+</head>
+<body>
+    <h1>Populaires ce mois-ci</h1>
+    <ul>
+        {% for game in games %}
+            <li>{{ game.title }} - {{ game.releaseDate|date('Y-m-d') }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

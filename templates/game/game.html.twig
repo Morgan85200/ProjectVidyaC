@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ game.title }} | VidyaCollection
+{% endblock %}
+
+{% block content %}
+    {# Render image jeu #}
+    <img src="{{ game.banner }}" class="game_banner" alt="Image">
+    <img src="{{ game.image }}" class="game_image" alt="Image">
+    {# Render titre jeu #}
+    <h1>{{ game.title }}</h1>
+    {# Render description jeu #}
+    <p>Sypnosis : {{ game.description }}</p>
+    {# Render date et créateurs #}
+    <p>Sorti le {{ game.releaseDate|date('Y-m-d') }} par {{ creatorNames.name }} </p>
+
+    {# Render des plateformes en une ligne #}
+    <p> Disponible sur : {% set platformList = '' %}
+        {% for platformName in platformNames %}
+        {% set platformList = platformList ~ platformName.name ~ (loop.last ? '' : ' - ') %}
+        {% endfor %}
+        {{ platformList }}
+    </p>
+    {# Render basique des plateformes sous forme de liste
+    {% for platformName in platformNames %}
+        <li>{{ platformName.name }}</li>
+    {% endfor %} #}
+{% endblock %}

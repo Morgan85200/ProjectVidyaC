@@ -1,0 +1,18 @@
+.logo {
+    height: 60px;
+}
+
+.game_image {
+    width:264px;
+    height:352px;
+}
+
+body { 
+    background-color:#e7e5e5;
+    padding:1%;
+}
+
+header {
+    margin-bottom:50px;
+    background-color:#e7e5e5;
+}
