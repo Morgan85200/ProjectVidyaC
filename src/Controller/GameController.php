@@ -47,7 +47,7 @@ class GameController extends AbstractController
 
         return $this->render('game/game.html.twig', [
             'game' => $gameDto,
-            'creatorNames' => $creatorsNames[0],
+            'creatorNames' => $creatorsNames,
             'platformNames' => $platformsNames,
             'reviews' => $reviews 
         ]);

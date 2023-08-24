@@ -39,6 +39,18 @@ class GameUserRepository extends ServiceEntityRepository
         }
     }
 
+    public function getAllGamesfromUser($userId)
+    {
+        return $this->createQueryBuilder('gu') // Using 'gu' as alias for gameUser entity
+        ->select('gu.timeSpent', 'gu.note', 'u.username', 'g.title', 'g.image', 'gu.statut', 'g.releaseDate') // Using 'gu' alias for selecting from gameUser entity
+        ->leftJoin('gu.game_id', 'g') // Using 'g' as alias for the game_id association
+        ->leftJoin('gu.user_id', 'u') // Using 'u' as alias for the user_id association
+        ->where('gu.user_id = :userId')
+        ->setParameter('userId', $userId)
+        ->getQuery()
+        ->getResult();
+    }
+
 //    /**
 //     * @return GameUser[] Returns an array of GameUser objects
 //     */

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<script src="{{ asset('js/flip.js') }}"></script>
+{% endblock %}
+
+{% block title %}
+Liste de {{ user.username }} | VidyaCollection
+{% endblock %}
+
+{% block content %}
+    <div class="game-container">
+        {% for userGame in userGames %}
+            {# <div class="game-entry">
+                <a href="{{ path('game_test', {'id': game.id}) }}">
+                    <img src="{{ asset('game/' ~ userGame.image) }}" class="home-game-image" alt="Image">
+                </a>
+                <p class="game-title"><strong>{{ userGame.title }}</strong></p>
+                <p class="game-date">{{ userGame.releaseDate|date('Y-m-d') }}</p>
+            </div> #}
+        <div class="game-entry">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ asset('game/' ~ userGame.image) }}" class="home-game-image" alt="Image">
+                    </div>
+                <div class="flip-card-back">
+                    <p>{{ userGame.title }}</p>
+                    <p>{{ userGame.releaseDate|date('Y-m-d') }}</p>
+                    <p>{{ userGame.note }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

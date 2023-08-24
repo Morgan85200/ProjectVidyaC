@@ -19,7 +19,9 @@ class GameDto
         $this->description = $game->getDescription();
         $this->releaseDate = $game->getReleaseDate();
         $this->image = $game->getImage();
-        $this->banner = $game->getBanner();
-    }
 
+        if ($game->getBanner() !== null) {
+        $this->banner = $game->getBanner();
+        }    
+    }  
 }

@@ -39,6 +39,15 @@ class GameRepository extends ServiceEntityRepository
         }
     }
 
+    public function findMostRecentGames($limit = 4)
+    {
+        return $this->createQueryBuilder('g')
+            ->orderBy('g.releaseDate', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Game[] Returns an array of Game objects
 //     */

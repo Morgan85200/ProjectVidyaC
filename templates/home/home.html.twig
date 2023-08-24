@@ -1,14 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Project Vidya Collection</title>
-</head>
-<body>
-    <h1>Populaires ce mois-ci</h1>
-    <ul>
+{% extends 'base.html.twig' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block title %}
+Accueil | VidyaCollection
+{% endblock %}
+
+{% block content %}
+    <h2>Les dernières sorties</h1>
+    {# Affichage dernières sorties jeux #}
+    {# Rajouter un carousel dans le futur #}
+    <div class="game-container">
         {% for game in games %}
-            <li>{{ game.title }} - {{ game.releaseDate|date('Y-m-d') }}</li>
+            <div class="game-entry">
+                <a href="{{ path('game_test', {'id': game.id}) }}">
+                    <img src="{{ asset('game/' ~ game.image) }}" class="home-game-image" alt="Image">
+                </a>
+                <p class="game-title"><strong>{{ game.title }}</strong></p>
+                <p class="game-date">{{ game.releaseDate|date('Y-m-d') }}</p>
+            </div>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+
+    <h2>Les dernières reviews</h2>
+    {# Affichage dernières reviews utilisateur #}
+    <div class="review-container">
+        {% for review in reviews %}
+            <div class="review-entry">
+                <p class="review-user-game-note"><strong>{{ review.gameId }}</strong> par {{ review.userId}} - Note : {{ review.note }} / 5</p>
+                <p class="review-body">{{ review.body }}</p>
+                <p class="review-date">{{ review.createdAt |date('Y-m-d') }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

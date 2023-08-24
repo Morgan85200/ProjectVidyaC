@@ -1,8 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block head %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
 {% block title %}
-    {{ game.title }} | VidyaCollection
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{{ game.title }} | VidyaCollection
 {% endblock %}
 
 {% block content %}
@@ -18,7 +21,13 @@
     {# Render description jeu #}
     <p>Sypnosis : {{ game.description }}</p>
     {# Render date et créateurs #}
-    <p>Sorti le {{ game.releaseDate|date('Y-m-d') }} par {{ creatorNames.name }} </p>
+    <p>Sorti le {{ game.releaseDate|date('Y-m-d') }} par 
+        {% set creatorList = '' %}
+        {% for creatorName in creatorNames %}
+        {% set creatorList = creatorList ~ creatorName.name ~ (loop.last ? '' : ', ') %}
+        {% endfor %} 
+        {{ creatorList }}
+        </p>
 
     {# Render des plateformes en une ligne #}
     <p> Disponible sur : 
@@ -33,9 +42,8 @@
     <p>Reviews : </p>
     {% for review in reviews %}
         <ul class="reviewList">
-        <li>De : {{ review.username }}</li>
+        <li>De : {{ review.username }} | Note : {{ review.note }} / 5</li>
         <li>{{ review.body }}</li>
-        <li>{{ review.note }} / 5</li>
         </ul>
     {% endfor %}
 {% endblock %}

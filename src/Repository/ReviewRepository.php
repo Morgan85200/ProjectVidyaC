@@ -50,6 +50,17 @@ class ReviewRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findMostRecentReviews($limit = 3)
+    {
+        return $this->createQueryBuilder('r')
+            ->orderBy('r.createdAt', 'DESC')
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+
+
 //    /**
 //     * @return Review[] Returns an array of Review objects
 //     */
