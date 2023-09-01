@@ -95,21 +95,42 @@ h2 {
     margin: 15px 0;
 }
 
+.list-game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    gap: 20px;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 5px; /* Add a bit of padding on the sides */
+}
+
+/* Adjust margins for .game-entry */
+.list-game-entry {
+    flex: 0 0 calc(20% - 0px); /* Distribute items in a row with equal width */
+    height: 340px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flip card styles */
 .flip-card {
-    perspective: 1000px; /* Add perspective to create a 3D effect */
-    width: 200px; /* Set dimensions */
-    height: 300px;
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
 }
 
 .flip-card-inner {
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.5s; /* Add smooth transition effect */
+    transition: transform 0.5s;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg); /* Flip the card on hover */
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -118,8 +139,19 @@ h2 {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .flip-card-back {
-    transform: rotateY(180deg); /* Initially hide the back content */
+    transform: rotateY(180deg);
+}
+
+/* Ensure that images maintain their aspect ratio */
+.list-game-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }

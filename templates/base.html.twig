@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Default Title{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('style') }}
+    {% endblock %}
+        
+    {% block javascripts %}
+        {{ encore_entry_script_tags('js') }}
+    {% endblock %}
 </head>
 <body>
     <header>
