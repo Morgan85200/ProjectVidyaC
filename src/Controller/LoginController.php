@@ -18,7 +18,7 @@ class LoginController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
         if ($this->getUser()) {
-            return $this->redirectToRoute('home'); // Replace 'home' with the actual route name of your home page
+            return $this->redirectToRoute('home');
         }
        
         return $this->render('login/index.html.twig', [

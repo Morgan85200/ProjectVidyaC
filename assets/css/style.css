@@ -155,3 +155,23 @@ h2 {
     max-height: 100%;
     object-fit: contain;
 }
+
+.header-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+.login-button {
+    display: inline-block; /* Display as a block-level element */
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Add padding to the button */
+    border: 2px solid #666; /* Grey border */
+    text-decoration: none; /* Remove default link underline */
+    text-align: center; /* Center text horizontally */
+}
+
+/* Hover effect for the button */
+.login-button:hover {
+    background-color: #222; /* Darker black on hover */
+}

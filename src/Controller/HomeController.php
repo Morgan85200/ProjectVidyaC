@@ -10,6 +10,7 @@ use App\Repository\ReviewRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Dto\GameDto;
 use App\Dto\ReviewDto;
+use App\Form\GameSearchType;
 
 class HomeController extends AbstractController
 {
@@ -25,8 +26,6 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'home')]
     public function index(): Response
     {
-        // $games = $this->gameRepository->findAll(); Récupérer tous les jeux
-
         $games = $this->gameRepository->findMostRecentGames();
         $reviews = $this->reviewRepository->findMostRecentReviews();
 

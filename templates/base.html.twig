@@ -11,10 +11,17 @@
 </head>
 <body>
     <header>
-        <div>
+        <div class="header-div">
             <a href="{{ path('home') }}">
                 <img class="logo" src="{{ asset('Logo.png') }}" alt="Logo">
             </a>
+            <a href="{{ path('app_login') }}" class="login-button">Login</a>
+            {{ form_start(form, {'attr': {'class': 'search-form'}}) }}
+{{ form_row(form.title) }} 
+<button type="submit">Search</button>
+{{ form_end(form) }}
+
+
         </div>
         {# Ligne séparatrice #}
         <hr class="header-separator">
