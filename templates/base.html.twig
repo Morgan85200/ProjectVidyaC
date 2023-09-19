@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>
+        {% block title %}Default Title{% endblock %}
+    </title>
     {% block stylesheets %}
         {{ encore_entry_link_tags('style') }}
     {% endblock %}
@@ -21,24 +24,22 @@
             {# Menu déroulant utilisateur #}
             {% if app.user %}
                 <div class="dropdown">
-    <div class="dropdown-wrapper">
-        <button class="bloc-top" id="dropdownButton">
-            <span>{{ app.user.username }}  ↓ </span>
-        </button>
-        <div class="bloc-links" id="dropdownContent">
-            <ul>
-                <li>
-                    <a href="{{ path('user_list', {'id': app.user.id}) }}">Ma Liste</a>
-                </li>
-                <li>
-                    <a href="#">Mon Profil</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
+                    <div class="dropdown-wrapper">
+                        <button class="bloc-top" id="dropdownButton">
+                            <span>{{ app.user.username }}  ↓ </span>
+                        </button>
+                        <div class="bloc-links" id="dropdownContent">
+                            <ul>
+                                <li>
+                                    <a href="{{ path('user_list', {'id': app.user.id}) }}">Ma Liste</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mon Profil</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             {% endif %}
             {# Log out button #}
             {% if app.user %}
