@@ -10,7 +10,6 @@ use App\Repository\ReviewRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Dto\GameDto;
 use App\Dto\ReviewDto;
-use App\Form\GameSearchType;
 
 class HomeController extends AbstractController
 {
@@ -20,7 +19,6 @@ class HomeController extends AbstractController
     public function __construct (GameRepository $gameRepository, ReviewRepository $reviewRepository) {
         $this->gameRepository = $gameRepository;
         $this->reviewRepository = $reviewRepository;
-
     }
        
     #[Route('/home', name: 'home')]

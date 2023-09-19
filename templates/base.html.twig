@@ -11,18 +11,21 @@
 </head>
 <body>
     <header>
+        {# Header div #}
         <div class="header-div">
+            {# Logo #}
             <a href="{{ path('home') }}">
                 <img class="logo" src="{{ asset('Logo.png') }}" alt="Logo">
-            </a>
-            <a href="{{ path('app_login') }}" class="login-button">Login</a>
-            {{ form_start(form, {'attr': {'class': 'search-form'}}) }}
-{{ form_row(form.title) }} 
-<button type="submit">Search</button>
-{{ form_end(form) }}
-
-
+            </a>    
+            {# Log out button #}
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}" class="login-button">Logout</a>
+                    {% else %}
+                        {# Login button #}
+                        <a href="{{ path('app_login') }}" class="login-button">Log In</a>
+            {% endif %}
         </div>
+
         {# Ligne séparatrice #}
         <hr class="header-separator">
     </header>
