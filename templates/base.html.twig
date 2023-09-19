@@ -7,6 +7,7 @@
         
     {% block javascripts %}
         {{ encore_entry_script_tags('js') }}
+        {{ encore_entry_script_tags('js2') }}
     {% endblock %}
 </head>
 <body>
@@ -14,9 +15,31 @@
         {# Header div #}
         <div class="header-div">
             {# Logo #}
-            <a href="{{ path('home') }}">
+            <a href="{{ path('home') }}" class="logo-parent">
                 <img class="logo" src="{{ asset('Logo.png') }}" alt="Logo">
-            </a>    
+            </a>
+            {# Menu déroulant utilisateur #}
+            {% if app.user %}
+                <div class="dropdown">
+    <div class="dropdown-wrapper">
+        <button class="bloc-top" id="dropdownButton">
+            <span>{{ app.user.username }}  ↓ </span>
+        </button>
+        <div class="bloc-links" id="dropdownContent">
+            <ul>
+                <li>
+                    <a href="{{ path('user_list', {'id': app.user.id}) }}">Ma Liste</a>
+                </li>
+                <li>
+                    <a href="#">Mon Profil</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+            {% endif %}
             {# Log out button #}
             {% if app.user %}
                 <a href="{{ path('app_logout') }}" class="login-button">Logout</a>

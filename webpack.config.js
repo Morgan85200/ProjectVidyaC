@@ -15,6 +15,7 @@ Encore
     //.setManifestKeyPrefix('build/')
     .addStyleEntry('style', './assets/css/style.css') // Add this line for CSS
      .addEntry('js', './assets/js/flip.js')
+     .addEntry('js2', './assets/js/scrollbtn.js')
 
     /*
      * ENTRY CONFIG
