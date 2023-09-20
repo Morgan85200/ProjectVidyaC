@@ -153,6 +153,13 @@ h2 {
     transform: rotateY(180deg);
 }
 
+.flip-card-front:hover {
+    cursor:pointer;
+}
+
+.flip-card-back:hover {
+    cursor:pointer;
+}
 /* Ensure that images maintain their aspect ratio */
 .list-game-image {
     max-width: 100%;
@@ -237,3 +244,17 @@ h2 {
     display: block;
 }
 /* Menu dropdown fin */
+
+.profile_container {
+    display: flex; /* Use Flexbox to arrange the blocks */
+    align-items: flex-start; /* Align items to the top of the container */
+  }
+  
+  .left-block {
+    flex: 1; /* Allow the left block to expand to take available space */
+    margin-right: 20px; /* Add some space between the blocks */
+  }
+  
+  .right-block {
+    flex: 2; /* Allow the right block to expand more (adjust as needed) */
+  }

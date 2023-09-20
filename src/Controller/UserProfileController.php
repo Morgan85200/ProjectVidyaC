@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Dto\UserDto;
 use App\Repository\GameRepository;
 use App\Repository\ReviewRepository;
 use App\Repository\UserRepository;
@@ -32,8 +33,17 @@ class UserProfileController extends AbstractController
             throw $this->createNotFoundException('Erreur : Utilisateur pas trouvé');
         }
 
+        $recentGames = $this->gameRepository->findMostRecentGamesInUserList($user);
+
+        $userDto = new UserDto($user);
+        $userDto->username = $user->getUsername();
+        $userDto->bio = $user->getBio();
+        $userDto->profilePicture = $user->getProfilePicture();
+
+
         return $this->render('user_profile/profile.html.twig', [
-            'controller_name' => 'UserProfileController',
+            'user' => $userDto,
+            'recentGames' => $recentGames,
         ]);
     }
 }

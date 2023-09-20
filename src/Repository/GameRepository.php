@@ -56,6 +56,19 @@ class GameRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+    public function findMostRecentGamesInUserList($userId, $limit = 5)
+    {
+        return $this->createQueryBuilder('g')
+            ->join('g.gameUsers', 'gu')
+            ->where('gu.user_id = :userId')
+            ->andWhere('gu.IsFavorited = true')
+            ->setParameter('userId', $userId)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+    }
+    
 //    /**
 //     * @return Game[] Returns an array of Game objects
 //     */

@@ -11,9 +11,9 @@ Liste de {{ user.username }} | VidyaCollection
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="{{ asset('game/' ~ userGame.image) }}" class="list-game-image" alt="Image">
+                            <img src="{{ asset('game/' ~ userGame.image) }}" class="list-game-image" alt="Image" >
                         </div>
-                        <div class="flip-card-back">
+                        <div class="flip-card-back" style="background-image:url('/game/{{userGame.image}}')">
                             <p>Titre: {{ userGame.title }}</p>
                             <p>Date de sortie: {{ userGame.releaseDate|date('Y-m-d') }}</p>
                             <p>Note: {{ userGame.note }} / 5</p>

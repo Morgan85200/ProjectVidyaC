@@ -5,5 +5,21 @@ Profile de {{ user.username }} | VidyaCollection
 {% endblock %}
 
 {% block content %}
+    <div class="profile_container">
+        <div class="left-block">
+        <img src="{{ asset('game/' ~ user.profilePicture) }}" alt="Profile Picture">
+        {{user.username}}
+        </div>
 
+        <div class="right-block">
+            <h2>Jeux favoris</h2>
+            <div class="list-game-container">
+                {% for recentGame in recentGames %}
+                    <div class="list-game-entry">
+                    <a href="{{ path('game_test', {'id': recentGame.id}) }}">
+                        <img src="{{ asset('game/' ~ recentGame.image) }}" class="list-game-image" alt="Image"></a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
 {% endblock %}
