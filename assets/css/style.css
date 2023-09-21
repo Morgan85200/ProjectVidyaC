@@ -258,3 +258,9 @@ h2 {
   .right-block {
     flex: 2; /* Allow the right block to expand more (adjust as needed) */
   }
+
+  .profilePicture {
+    width:100px;
+    height:100px; 
+    object-fit:cover;
+  }

@@ -10,8 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[Vich\Uploadable]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -36,8 +40,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $bio = null;
 
+    #[Vich\UploadableField(mapping: 'profilePictures', fileNameProperty: 'profilePicture', size: 'profilePictureSize')]
+    #[Groups(['user'])]
+    private ?File $profilePictureFile = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $profilePicture = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $profilePictureSize = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $profilePictureUpdatedAt = null;
 
     #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Review::class)]
     private Collection $reviews;
@@ -166,6 +180,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->profilePicture = $profilePicture;
 
         return $this;
+    }
+
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $profilePictureFile
+     */
+    public function setProfilePictureFile(?File $profilePictureFile = null): void
+    {
+        $this->profilePictureFile = $profilePictureFile;
+
+        if (null !== $profilePictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->profilePictureUpdatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getProfilePictureFile(): ?File
+    {
+        return $this->profilePictureFile;
+    }
+
+    public function setProfilePictureSize(?int $profilePictureSize): void
+    {
+        $this->profilePictureSize = $profilePictureSize;
+    }
+
+    
+    public function getPictureSize(): ?int
+    {
+        return $this->profilePictureSize;
     }
 
     /**

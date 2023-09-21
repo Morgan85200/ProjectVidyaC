@@ -7,8 +7,15 @@ Profile de {{ user.username }} | VidyaCollection
 {% block content %}
     <div class="profile_container">
         <div class="left-block">
-        <img src="{{ asset('game/' ~ user.profilePicture) }}" alt="Profile Picture">
-        {{user.username}}
+            <div>{{user.username}}</div>
+                <div>{% if user.profilePicture %}
+                    <img src="{{ asset('userImages/profilePicture/' ~ user.profilePicture) }}" alt="Profile Picture" class="profilePicture">
+                {% endif %}
+                {{ form_start(form) }}
+                    {{ form_row(form.profilePictureFile) }}
+                    <button type="submit" class="btn btn-primary">Save</button>
+                {{ form_end(form) }}
+            </div>
         </div>
 
         <div class="right-block">
