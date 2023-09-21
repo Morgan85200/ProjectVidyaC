@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[Vich\Uploadable]
 #[ApiResource]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User implements UserInterface, \Serializable, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -190,6 +190,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * during Doctrine hydration.
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $profilePictureFile
+     * @return User
      */
     public function setProfilePictureFile(?File $profilePictureFile = null): void
     {
@@ -206,6 +207,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->profilePictureFile;
     }
+
+    public function serialize() {
+
+        return serialize(array(
+        $this->id,
+        $this->username,
+        $this->password,
+        ));
+        
+        }
+        
+        public function unserialize($serialized) {
+        
+        list (
+        $this->id,
+        $this->username,
+        $this->password,
+        ) = unserialize($serialized);
+        }
 
     public function setProfilePictureSize(?int $profilePictureSize): void
     {

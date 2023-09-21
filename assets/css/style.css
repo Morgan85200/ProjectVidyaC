@@ -126,6 +126,20 @@ h2 {
     height: 100%;
 }
 
+.flip-card-back-overlay {
+    position: absolute;
+    width: 98.701%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+    font-weight: bold;
+}
+
 .flip-card-inner {
     width: 100%;
     height: 100%;
@@ -158,7 +172,11 @@ h2 {
 }
 
 .flip-card-back:hover {
-    cursor:pointer;
+    cursor: pointer;
+}
+
+.flip-card-back-overlay {
+    opacity: 1;
 }
 /* Ensure that images maintain their aspect ratio */
 .list-game-image {
@@ -263,4 +281,13 @@ h2 {
     width:100px;
     height:100px; 
     object-fit:cover;
+    border: solid 2px gold;
+    margin-top : 1%;
+    margin-bottom : 1%;
+    box-shadow:
+    0 0 0 2px orange;
+  }
+
+  body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }

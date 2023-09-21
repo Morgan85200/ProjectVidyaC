@@ -14,7 +14,7 @@ class ProfilePictureType extends AbstractType
     {
         $builder
             ->add('profilePictureFile', FileType::class, [
-                'label' => 'Image de profile',
+                'label' => false, // Set the label to false to remove it
                 'required' => false, // Allow users to remove their profile picture
             ]);
     }

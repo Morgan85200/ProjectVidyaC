@@ -49,8 +49,6 @@ class UserProfileController extends AbstractController
             $entityManager->flush();
         
             $this->addFlash('success', 'Profile picture updated successfully.');
-        
-            return $this->redirectToRoute('user_profile', ['id' => $user->getId()]);
         }
 
         $recentGames = $this->gameRepository->findMostRecentGamesInUserList($user);

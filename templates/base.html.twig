@@ -11,6 +11,7 @@
     {% block javascripts %}
         {{ encore_entry_script_tags('js') }}
         {{ encore_entry_script_tags('js2') }}
+        {{ encore_entry_script_tags('js3')}}
     {% endblock %}
 </head>
 <body>
@@ -34,7 +35,7 @@
                                     <a href="{{ path('user_list', {'id': app.user.id}) }}">Ma Liste</a>
                                 </li>
                                 <li>
-                                    <a href="#">Mon Profil</a>
+                                    <a href="{{ path('user_profile', {'id': app.user.id}) }}">Mon Profil</a>
                                 </li>
                             </ul>
                         </div>

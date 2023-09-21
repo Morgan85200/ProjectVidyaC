@@ -38,10 +38,6 @@ class UserListController extends AbstractController
         $userGames = $doctrine->getRepository(GameUser::class)->getAllGamesfromUser($id);
         $creatorsNames = $doctrine->getRepository(GameCreator::class)->getAllCreatorsName($id);
         $platformsNames = $doctrine->getRepository(GamePlatform::class)->getAllPlatformsName($id);
-        // foreach ($userGames as $userGame) {
-        //     dump($userGame);
-        // }
-        // die();
 
         $userDto = new UserDto($user);
         $userDto->username = $user->getUsername();

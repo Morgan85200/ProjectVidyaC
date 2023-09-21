@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     flipCards.forEach(flipCard => {
         flipCard.addEventListener('click', () => {
             flipCard.classList.toggle('flipped');
-
         });
     });
 });
