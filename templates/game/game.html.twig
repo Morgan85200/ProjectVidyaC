@@ -16,6 +16,10 @@
     </div>
     {# Render titre jeu #}
     <h1>{{ game.title }}</h1>
+    {# Button to add the game to the user's list #}
+    <form action="{{ path('addGameToList', {'id': game.id}) }}" method="post">
+        <button type="submit">Add to My List</button>
+    </form>
     {# Ligne séparatrice #}
     <hr class="separator">
     {# Render description jeu #}

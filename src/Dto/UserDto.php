@@ -6,6 +6,7 @@ use App\Entity\User;
 class UserDto
 {
     public string $username;
+    public int $id;
     public ?string $bio = null;
     public ?string $profilePicture = null;
 
@@ -13,5 +14,6 @@ class UserDto
         $this->username = $user->getUsername();
         $this->bio = $user->getBio();
         $this->profilePicture = $user->getProfilePicture();
+        $this->id = $user->getId();
     }  
 }

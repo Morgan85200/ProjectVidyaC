@@ -269,12 +269,12 @@ h2 {
   }
   
   .left-block {
-    flex: 1; /* Allow the left block to expand to take available space */
+    flex: 0.6; /* Allow the left block to expand to take available space */
     margin-right: 20px; /* Add some space between the blocks */
   }
   
   .right-block {
-    flex: 2; /* Allow the right block to expand more (adjust as needed) */
+    flex: 2.6; /* Allow the right block to expand more (adjust as needed) */
   }
 
   .profilePicture {
@@ -291,3 +291,16 @@ h2 {
   body {
     font-family:Georgia, 'Times New Roman', Times, serif;
   }
+
+  .bio-container {
+    margin-top:2%;
+    border:solid 1px white;
+    padding:2%;
+  }
+
+  .bio-title {
+    font-weight: bold;
+    margin-bottom: 2%;
+  }
+
+  

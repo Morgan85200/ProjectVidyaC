@@ -55,10 +55,11 @@ class GameUser
         return $this;
     }
 
-    public function getGameId(): ?Game
+    public function getGameId(): ?int
     {
-        return $this->game_id;
+        return $this->game_id ? $this->game_id->getId() : null;
     }
+
 
     public function setGameId(?Game $game_id): self
     {
@@ -103,7 +104,7 @@ class GameUser
         return $this;
     }
 
-    public function isIsFavorited(): ?bool
+    public function getIsFavorited(): ?bool
     {
         return $this->IsFavorited;
     }

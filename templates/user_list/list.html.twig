@@ -19,6 +19,7 @@ Liste de {{ user.username }} | VidyaCollection
                                 <p>{{ userGame.title }}</p>
                                 <p>Sorti le {{ userGame.releaseDate|date('Y-m-d') }}</p>
                                 <p>Note: {{ userGame.note }} / 5</p>
+                                {# <button class="favorite-button" data-game-id="{{ userGame.gameId }}" data-user-id="{{ user.id }}">Ajouter aux favoris</button> #}
                             </div>
                             <!-- End of overlay -->
                         </div>

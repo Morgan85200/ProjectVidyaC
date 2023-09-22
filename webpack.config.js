@@ -17,6 +17,7 @@ Encore
      .addEntry('js', './assets/js/flip.js')
      .addEntry('js2', './assets/js/scrollbtn.js')
      .addEntry('js3', './assets/js/ppPreview.js')
+     .addEntry('js4', './assets/js/addRemoveFav.js')
 
     /*
      * ENTRY CONFIG
