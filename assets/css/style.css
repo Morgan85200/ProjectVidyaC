@@ -1,5 +1,6 @@
 .logo-parent {
-    flex-basis: 1080px;
+    /* flex-basis: 1080px; */
+    margin-right:2%;
 }
 
 .logo {
@@ -188,7 +189,7 @@ h2 {
 .header-div {
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: flex-start;
 }
 .login-button {
     display: inline-block; /* Display as a block-level element */
@@ -198,6 +199,7 @@ h2 {
     border: 2px solid gray; /* Grey border */
     text-decoration: none; /* Remove default link underline */
     text-align: center; /* Center text horizontally */
+    margin-right:2%;
 }
 
 /* Hover effect for the button */
@@ -234,6 +236,7 @@ h2 {
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-right:2%;
 }
 
 .bloc-top,
@@ -303,4 +306,12 @@ h2 {
     margin-bottom: 2%;
   }
 
-  
+  h1 {
+    font-size: large;
+    flex-basis:60%
+  }
+
+  .review-entry {
+    border: solid 2px gray;
+    padding : 1%;
+  }

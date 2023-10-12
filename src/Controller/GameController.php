@@ -53,7 +53,7 @@ class GameController extends AbstractController
     #[Route('/game/{id}/addGameToList', name: 'addGameToList')]
     public function addToUserList(ManagerRegistry $doctrine, $id): Response
     {
-        // Get the authenticated user, you'll need to adjust this based on your authentication system
+        // Get the authenticated user
         $user = $this->getUser();
 
         // Get the game based on the $id

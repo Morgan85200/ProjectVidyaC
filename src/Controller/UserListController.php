@@ -15,6 +15,8 @@ use App\Entity\GameCreator;
 use App\Entity\GamePlatform;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Dto\UserDto;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class UserListController extends AbstractController
 {
@@ -34,6 +36,16 @@ class UserListController extends AbstractController
         if (!$user) {
             throw $this->createNotFoundException('Erreur : Utilisateur pas trouvé');
         }
+
+        $currentUser = $this->getUser(); // Get the currently logged-in user
+        if (!$currentUser) {
+            throw new AccessDeniedException('Access denied. You are not logged in.');
+        }
+        
+        if ((int)$currentUser->getId() !== (int)$id) {
+            throw new AccessDeniedException('Access denied. You are not authorized to view this page.');
+        }
+        
 
         $userGames = $doctrine->getRepository(GameUser::class)->getAllGamesfromUser($id);
         $creatorsNames = $doctrine->getRepository(GameCreator::class)->getAllCreatorsName($id);
