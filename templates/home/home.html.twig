@@ -12,7 +12,7 @@ Accueil | VidyaCollection
         {% for game in games %}
             <div class="game-entry">
                 <a href="{{ path('game_test', {'id': game.id}) }}">
-                    <img src="{{ asset('game/' ~ game.image) }}" class="home-game-image" alt="Image">
+                    <img src="{{ asset('game/' ~ game.image) }}" class="home-game-image" alt="Image du jeu">
                 </a>
                 <p class="game-title"><strong>{{ game.title }}</strong></p>
                 <p class="game-date">{{ game.releaseDate|date('Y-m-d') }}</p>
