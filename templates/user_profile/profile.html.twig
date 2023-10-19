@@ -9,7 +9,7 @@ Profile de {{ user.username }} | VidyaCollection
         <div class="left-block">
             <div>{{user.username}}</div>
                 <div>{% if user.profilePicture %}
-                    <img src="{{ asset('userImages/profilePicture/' ~ user.profilePicture) }}" alt="Profile Picture" class="profilePicture">
+                    <img src="{{ asset('userImages/profilePicture/' ~ user.profilePicture) }}" alt="Image de profil" class="profilePicture">
                 {% endif %}
                 {{ form_start(form) }}
                     {{ form_row(form.profilePictureFile) }}
@@ -28,7 +28,7 @@ Profile de {{ user.username }} | VidyaCollection
                 {% for recentGame in recentGames %}
                     <div class="list-game-entry">
                     <a href="{{ path('game_test', {'id': recentGame.id}) }}">
-                        <img src="{{ asset('game/' ~ recentGame.image) }}" class="list-game-image" alt="Image"></a>
+                        <img src="{{ asset('game/' ~ recentGame.image) }}" class="list-game-image" alt="Image du jeu"></a>
                     </div>
                 {% endfor %}
             </div>
