@@ -16,8 +16,7 @@ Encore
     .addStyleEntry('style', './assets/css/style.css') // Add this line for CSS
      .addEntry('js', './assets/js/flip.js')
      .addEntry('js2', './assets/js/scrollbtn.js')
-     .addEntry('js3', './assets/js/ppPreview.js')
-     .addEntry('js4', './assets/js/addRemoveFav.js')
+     .addEntry('js3', './assets/js/handleError.js')
 
     /*
      * ENTRY CONFIG

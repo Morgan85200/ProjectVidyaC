@@ -1,0 +1,3 @@
+security:
+    login:
+        authentication_failure: 'Erreur d'authentification, veuillez vérifier vos identifiants'

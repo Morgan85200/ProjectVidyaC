@@ -47,7 +47,6 @@ class HomeController extends AbstractController
             $dto->note = $review->getNote();
             $reviewDtos[] = $dto;
         }
-
         return $this->render('home/home.html.twig', [
             'games' => $gameDtos,
             'reviews' => $reviewDtos,

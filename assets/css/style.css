@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@1&family=Press+Start+2P&display=swap');
+
 .logo-parent {
     /* flex-basis: 1080px; */
     margin-right:2%;
@@ -9,6 +11,7 @@
 
 body { 
     /* background-color:#e7e5e5; */
+    font-family: 'Poppins';
     background-color:rgb(27, 27, 27);
     color:white;
     padding:1%;
@@ -289,10 +292,6 @@ h2 {
     margin-bottom : 1%;
     box-shadow:
     0 0 0 2px orange;
-  }
-
-  body {
-    font-family:Georgia, 'Times New Roman', Times, serif;
   }
 
   .bio-container {

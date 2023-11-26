@@ -5,8 +5,6 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\GameUserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Validator\Constraints as CustomAssert;
-
 
 #[ORM\Entity(repositoryClass: GameUserRepository::class)]
 #[ApiResource]
@@ -35,7 +33,6 @@ class GameUser
     private ?int $timeSpent = null;
 
     #[ORM\Column]
-    #[CustomAssert\MaxFavoriteGames]
     private ?bool $IsFavorited = null;
 
     public function getId(): ?int

@@ -3,6 +3,7 @@
 {% block title %}
 Accueil | VidyaCollection
 {% endblock %}
+{% block meta_description %} Partagez votre passion avec vos amis, découvrez de nouveaux jeux et créez votre identité jeu-vidéo ludique{% endblock %}
 
 {% block content %}
     <h2>Les dernières sorties</h1>
@@ -12,7 +13,7 @@ Accueil | VidyaCollection
         {% for game in games %}
             <div class="game-entry">
                 <a href="{{ path('game_test', {'id': game.id}) }}">
-                    <img src="{{ asset('game/' ~ game.image) }}" class="home-game-image" alt="Image du jeu">
+                    <img src="{{ asset('game/' ~ game.image) }}" class="home-game-image" alt="Image de la jaquette du jeu">
                 </a>
                 <p class="game-title"><strong>{{ game.title }}</strong></p>
                 <p class="game-date">{{ game.releaseDate|date('Y-m-d') }}</p>
