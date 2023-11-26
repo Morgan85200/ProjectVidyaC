@@ -13,10 +13,11 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
-    .addStyleEntry('style', './assets/css/style.css') // Add this line for CSS
+    .addStyleEntry('style', './assets/css/style.css')
      .addEntry('js', './assets/js/flip.js')
      .addEntry('js2', './assets/js/scrollbtn.js')
      .addEntry('js3', './assets/js/handleError.js')
+     .addEntry('js4', './assets/js/custom-carousel.js')
 
     /*
      * ENTRY CONFIG

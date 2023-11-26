@@ -322,6 +322,48 @@ h2 {
     max-width: 100%; /* Limit the width to the parent container */
 }
 
+.wrapper .carousel {
+    white-space: nowrap;
+    cursor: pointer;
+    overflow : hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel {
+    max-width: 1200px;
+    position: relative;
+    padding: 0 35px;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.wrapper i {
+    top: 50%;
+    height: 46px;
+    width: 46px;
+    cursor: pointer;
+    position:absolute;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 46px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color:#000;
+    background-color: #fff;
+}
+
+.wrapper i:last-child{
+    right: -23px;
+}
+
+.carousel img {
+    height: 354px;
+    width: 256px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
   /* MOBILE */
 @media screen and (max-width: 768px) {
     .logo-parent {

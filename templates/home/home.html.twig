@@ -3,13 +3,14 @@
 {% block title %}
 Accueil | VidyaCollection
 {% endblock %}
+
 {% block meta_description %} Partagez votre passion avec vos amis, découvrez de nouveaux jeux et créez votre identité jeu-vidéo ludique{% endblock %}
 
 {% block content %}
     <h2>Les dernières sorties</h1>
     {# Affichage dernières sorties jeux #}
     {# Rajouter un carousel dans le futur #}
-    <div class="game-container">
+    {# <div class="game-container">
         {% for game in games %}
             <div class="game-entry">
                 <a href="{{ path('game_test', {'id': game.id}) }}">
@@ -19,6 +20,17 @@ Accueil | VidyaCollection
                 <p class="game-date">{{ game.releaseDate|date('Y-m-d') }}</p>
             </div>
         {% endfor %}
+    </div> #}
+
+    <div class ="wrapper">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+        <div class="carousel">
+            {% for game in games %}
+                    <a href="{{ path('game_test', {'id': game.id}) }}">
+                        <img src="{{ asset('game/' ~ game.image)}}" alt="Image de la jaquette du jeu"></a>
+            {% endfor %}
+        </div>
+        <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
 
     <h2>Les dernières reviews</h2>
