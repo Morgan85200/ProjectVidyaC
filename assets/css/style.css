@@ -10,7 +10,6 @@
 }
 
 body { 
-    /* background-color:#e7e5e5; */
     font-family: 'Poppins';
     background-color:rgb(27, 27, 27);
     color:white;
@@ -233,6 +232,7 @@ h2 {
     color: #fff; /* Text color for the button */
     padding: 15.5px;
     cursor: pointer;
+    font-family:"Poppins";
 }
 
 /* Position the dropdown content above the header */
@@ -363,6 +363,37 @@ h2 {
     object-fit: cover;
     margin-left: 10px;
 }
+
+.controller-icon {
+    width:30px;
+    height:auto;
+}
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  .controller-icon {
+    animation: rotate infinite linear 5s;
+    scroll-behavior: smooth;
+  }
+
+  @keyframes flash {
+    0%, 50%, 100% {
+      color: red;
+    }
+    25%, 75% {
+      color: white;
+    }
+  }
+  
+  #errorMsg {
+    animation: flash 4s infinite;
+  }
 
   /* MOBILE */
 @media screen and (max-width: 768px) {

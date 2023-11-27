@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-    var errorMessage = document.getElementById('errorMsg');
+const errorMessage = document.getElementById('errorMsg');
 
-    errorMessage.style.color = 'red';
-    errorMessage.style.fontWeight = 'bold';
-});
+function toggleFlash() {
+  errorMessage.classList.toggle('flash-message');
+}
+
+toggleFlash();
